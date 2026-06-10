@@ -51,14 +51,14 @@ Legenda de status: ✅ concluída · 🚧 em andamento · ⬜ pendente
 **Depende de:** Fase 1 (auth).
 **Pronto quando:** filtros refletem na URL/query e a lista pagina corretamente.
 
-## Fase 5 — Estúdio 🚧 (próxima)
+## Fase 5 — Estúdio ✅
 **Objetivo:** geração de roteiros com IA (resposta pode demorar).
-- [ ] `api/scripts.ts` (gerar, listar, detalhe, por produto)
-- [ ] Tipos `ScriptResponse`
-- [ ] Form de geração (plataforma, formato, tom, duração)
-- [ ] **Bloqueio preventivo** quando limite do plano atingido (`usoPlano`)
-- [ ] Lista de roteiros + visualização (hook, tópicos, CTA, hashtags, stories)
-- [ ] Estado de "gerando…" tolerante (cold start + IA)
+- [x] `api/scripts.ts` (gerar, listar, detalhe, por produto)
+- [x] Tipos `ScriptResponse`
+- [x] Form de geração (plataforma, formato, tom, duração)
+- [x] **Bloqueio preventivo** quando limite do plano atingido (`usoPlano`)
+- [x] Lista de roteiros + visualização (hook, tópicos, CTA, hashtags, stories)
+- [x] Estado de "gerando…" tolerante (cold start + IA)
 **Depende de:** Fase 4 (vincular roteiro a produto via `productId`).
 **Pronto quando:** roteiro é gerado e exibido; limite bloqueia o botão.
 

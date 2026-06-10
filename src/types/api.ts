@@ -51,6 +51,8 @@ export type ScriptFormat =
   | "VALE_A_PENA"
   | "COMPARATIVO"
   | "DICAS_DE_USO";
+export type ScriptTone = "ENTUSIASMADO" | "EDUCATIVO" | "DESCONTRAIDO" | "URGENTE";
+export type ScriptDuration = "CURTO" | "MEDIO" | "LONGO";
 export type VideoStatus =
   | "PENDING"
   | "GENERATING_AUDIO"
@@ -164,5 +166,39 @@ export interface RadarFilters {
   category?: Category;
   platform?: Platform;
   search?: string;
+  page?: number;
+}
+
+// ============================================================
+// Estúdio — /api/studio
+// ============================================================
+export interface ScriptGenerateRequest {
+  productId: string;
+  platform: ScriptPlatform;
+  format: ScriptFormat;
+  tone: ScriptTone;
+  duration: ScriptDuration;
+}
+
+export interface ScriptResponse {
+  id: string;
+  productId: string;
+  productName: string;
+  platform: ScriptPlatform;
+  format: ScriptFormat;
+  tone: ScriptTone;
+  duration: ScriptDuration;
+  hook: string;
+  topicos: string[];
+  cta: string;
+  hashtags: string[];
+  stories?: string[];
+  criadoEm: string;
+}
+
+/** Filtros da listagem do Estúdio (viram query params). */
+export interface ScriptFilters {
+  platform?: ScriptPlatform;
+  format?: ScriptFormat;
   page?: number;
 }
