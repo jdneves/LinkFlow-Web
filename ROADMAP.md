@@ -62,13 +62,13 @@ Legenda de status: ✅ concluída · 🚧 em andamento · ⬜ pendente
 **Depende de:** Fase 4 (vincular roteiro a produto via `productId`).
 **Pronto quando:** roteiro é gerado e exibido; limite bloqueia o botão.
 
-## Fase 6 — Links ⬜
+## Fase 6 — Links ✅
 **Objetivo:** links de afiliado rastreáveis.
-- [ ] `api/links.ts` (criar, listar paginado, detalhe, desativar)
-- [ ] Tipos `LinkResponse`
-- [ ] Form de criação (destino, título, slug opcional, campanha)
-- [ ] Lista + copiar `shortUrl` + exibir QR code (`qrCodeUrl`)
-- [ ] Soft delete (DELETE) com confirmação
+- [x] `api/links.ts` (criar, listar paginado, detalhe, desativar)
+- [x] Tipos `LinkResponse`
+- [x] Form de criação (destino, título, slug opcional, campanha)
+- [x] Lista + copiar `shortUrl` + exibir QR code (`qrCodeUrl`)
+- [x] Soft delete (DELETE) com confirmação
 **Depende de:** Fase 1; opcionalmente Fases 4/5 (vincular product/script).
 **Pronto quando:** cria link, copia URL curta e desativa.
 

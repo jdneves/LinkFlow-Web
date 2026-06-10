@@ -202,3 +202,31 @@ export interface ScriptFilters {
   format?: ScriptFormat;
   page?: number;
 }
+
+// ============================================================
+// Links — /api/links
+// ============================================================
+export interface LinkResponse {
+  id: string;
+  slug: string;
+  title: string;
+  destination: string;
+  shortUrl: string;
+  qrCodeUrl: string;
+  clicks: number;
+  platform: Platform;
+  campaign?: string;
+  active: boolean;
+  criadoEm: string;
+}
+
+export interface LinkCreateRequest {
+  destination: string;
+  title: string;
+  slug?: string;
+  campaign?: string;
+}
+
+export interface LinkFilters {
+  page?: number;
+}

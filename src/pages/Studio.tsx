@@ -53,8 +53,11 @@ export default function Studio() {
   const [generateOpen, setGenerateOpen] = useState(false);
 
   const usoPlano = analytics.data?.usoPlano;
+  // Trata limite <= 0 como ilimitado (ex.: plano PRO) — não bloquear nesse caso.
   const limitAtingido =
-    !!usoPlano && usoPlano.rotelirosMes >= usoPlano.limiteRoteiros;
+    !!usoPlano &&
+    usoPlano.limiteRoteiros > 0 &&
+    usoPlano.rotelirosMes >= usoPlano.limiteRoteiros;
 
   return (
     <div className="space-y-6">
