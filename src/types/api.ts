@@ -125,3 +125,44 @@ export interface OnboardingResponse {
   proximoPasso: string;
   mensagemMotivacional: string;
 }
+
+// ============================================================
+// Radar — /api/radar
+// ============================================================
+export type Trend = "RISING" | "STABLE" | "FALLING";
+
+export interface ScoreDetail {
+  commission: string;  // ex.: "Alta"
+  competition: string; // ex.: "Baixa"
+  demand: string;      // ex.: "Crescente"
+}
+
+export interface ProductResponse {
+  id: string;
+  externalId: string;
+  platform: Platform;
+  name: string;
+  price: number;
+  originalPrice: number;
+  discountPct: number;
+  commissionPct: number;
+  estimatedCommission: number;
+  imageUrl: string;
+  productUrl: string;
+  category: Category;
+  score: number; // 0–100
+  trend: Trend;
+  scoreDetail: ScoreDetail;
+}
+
+export interface CategoriasResponse {
+  categorias: Category[];
+}
+
+/** Filtros da listagem do Radar (viram query params). */
+export interface RadarFilters {
+  category?: Category;
+  platform?: Platform;
+  search?: string;
+  page?: number;
+}

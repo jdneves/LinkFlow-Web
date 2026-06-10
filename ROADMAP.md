@@ -40,18 +40,18 @@ Legenda de status: ✅ concluída · 🚧 em andamento · ⬜ pendente
 
 ---
 
-## Fase 4 — Radar 🚧 (próxima)
+## Fase 4 — Radar ✅
 **Objetivo:** descoberta de produtos — primeira tela com paginação + filtros.
-- [ ] `api/products.ts` (list com query params, trending, detalhe, categorias)
-- [ ] Tipos `ProductResponse` + `scoreDetail` em `types/api.ts`
-- [ ] Hooks `useProducts` (paginado), `useTrending`, `useProduct`
-- [ ] Tela `Radar`: filtros (categoria, plataforma, busca) + grid de cards
-- [ ] Paginação e estado vazio
-- [ ] Página/painel de detalhe do produto (score, comissão, tendência)
+- [x] `api/products.ts` (list com query params, trending, detalhe, categorias)
+- [x] Tipos `ProductResponse` + `scoreDetail` em `types/api.ts`
+- [x] Hooks `useProducts` (paginado), `useTrending`, `useProduct`
+- [x] Tela `Radar`: filtros (categoria, plataforma, busca) + grid de cards
+- [x] Paginação e estado vazio
+- [x] Página/painel de detalhe do produto (score, comissão, tendência)
 **Depende de:** Fase 1 (auth).
 **Pronto quando:** filtros refletem na URL/query e a lista pagina corretamente.
 
-## Fase 5 — Estúdio ⬜
+## Fase 5 — Estúdio 🚧 (próxima)
 **Objetivo:** geração de roteiros com IA (resposta pode demorar).
 - [ ] `api/scripts.ts` (gerar, listar, detalhe, por produto)
 - [ ] Tipos `ScriptResponse`
