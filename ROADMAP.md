@@ -72,22 +72,22 @@ Legenda de status: ✅ concluída · 🚧 em andamento · ⬜ pendente
 **Depende de:** Fase 1; opcionalmente Fases 4/5 (vincular product/script).
 **Pronto quando:** cria link, copia URL curta e desativa.
 
-## Fase 7 — Vídeos ⬜
+## Fase 7 — Vídeos ✅
 **Objetivo:** geração assíncrona com polling.
-- [ ] `api/videos.ts` (criar 202, status, listar)
-- [ ] Tipos `VideoJobResponse` (status PENDING→COMPLETED/FAILED)
-- [ ] Hook de status com `refetchInterval` (10–30s), parando em estado terminal
-- [ ] Tela: criar a partir de roteiro + UI dos estágios + erro/`errorMessage`
+- [x] `api/videos.ts` (criar 202, status, listar)
+- [x] Tipos `VideoJobResponse` (status PENDING→COMPLETED/FAILED)
+- [x] Hook de status com `refetchInterval` (10–30s), parando em estado terminal
+- [x] Tela: criar a partir de roteiro + UI dos estágios + erro/`errorMessage`
 **Depende de:** Fase 5 (precisa de `scriptId`).
 **Pronto quando:** job criado faz polling e mostra vídeo pronto ou falha.
 
 ---
 
-## Fase 8 — Polimento & Deploy ⬜
+## Fase 8 — Polimento & Deploy 🚧
 **Objetivo:** pronto pra produção.
-- [ ] `lazy()` na rota do Dashboard (isolar chunk do Recharts)
+- [x] `lazy()` em todas as rotas de página (code-split + isola chunk do Recharts)
 - [ ] Combinar URL final do frontend e **restringir CORS** no backend
-- [ ] Mensagem amigável de cold start (Render free tier) no 1º acesso
+- [x] Mensagem amigável de cold start (Render free tier) no 1º acesso
 - [ ] Revisitar storage de token (localStorage → avaliar httpOnly)
 - [ ] Deploy do build (`dist/`) em CDN
 

@@ -204,6 +204,27 @@ export interface ScriptFilters {
 }
 
 // ============================================================
+// Vídeos — /api/videos
+// ============================================================
+export interface VideoJobResponse {
+  id: string;
+  scriptId: string;
+  productName: string;
+  status: VideoStatus;
+  videoUrl?: string;
+  errorMessage?: string;
+  criadoEm: string;
+}
+
+export interface VideoCreateRequest {
+  scriptId: string;
+}
+
+export interface VideoFilters {
+  page?: number;
+}
+
+// ============================================================
 // Links — /api/links
 // ============================================================
 export interface LinkResponse {
