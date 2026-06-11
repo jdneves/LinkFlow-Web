@@ -21,7 +21,7 @@ export function VideoCard({ video }: Props) {
   const failed = video.status === "FAILED";
   const completed = video.status === "COMPLETED";
 
-  const date = new Date(video.criadoEm).toLocaleDateString("pt-BR", {
+  const date = new Date(video.createdAt).toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "short",
     hour: "2-digit",

@@ -39,9 +39,11 @@ export function ScriptDetailDialog({ script, open, onOpenChange }: Props) {
                   <Badge variant="outline">
                     {SCRIPT_TONE_LABEL[script.tone]}
                   </Badge>
-                  <Badge variant="outline">
-                    {SCRIPT_DURATION_LABEL[script.duration]}
-                  </Badge>
+                  {script.duration && (
+                    <Badge variant="outline">
+                      {SCRIPT_DURATION_LABEL[script.duration]}
+                    </Badge>
+                  )}
                 </div>
               </DialogDescription>
             </DialogHeader>
@@ -53,7 +55,7 @@ export function ScriptDetailDialog({ script, open, onOpenChange }: Props) {
 
               <ScriptSection title="Tópicos">
                 <ol className="space-y-1.5">
-                  {script.topicos.map((t, i) => (
+                  {script.topics.map((t, i) => (
                     <li key={i} className="flex gap-2 text-sm">
                       <span className="shrink-0 font-medium text-muted-foreground">
                         {i + 1}.

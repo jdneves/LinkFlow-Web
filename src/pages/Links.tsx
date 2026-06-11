@@ -30,7 +30,9 @@ export default function Links() {
 
   const usoPlano = analytics.data?.usoPlano;
   const limitAtingido =
-    !!usoPlano && usoPlano.linksAtivos >= usoPlano.limiteLinks;
+    !!usoPlano &&
+    usoPlano.limiteLinks > 0 &&
+    usoPlano.linksAtivos >= usoPlano.limiteLinks;
 
   return (
     <div className="space-y-6">

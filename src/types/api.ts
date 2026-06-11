@@ -187,13 +187,16 @@ export interface ScriptResponse {
   platform: ScriptPlatform;
   format: ScriptFormat;
   tone: ScriptTone;
-  duration: ScriptDuration;
+  /** Não retornado pelo backend (só existe no request de geração). */
+  duration?: ScriptDuration;
+  title?: string;
   hook: string;
-  topicos: string[];
+  topics: string[];
   cta: string;
+  caption?: string;
   hashtags: string[];
   stories?: string[];
-  criadoEm: string;
+  createdAt: string;
 }
 
 /** Filtros da listagem do Estúdio (viram query params). */
@@ -211,9 +214,11 @@ export interface VideoJobResponse {
   scriptId: string;
   productName: string;
   status: VideoStatus;
+  audioUrl?: string;
   videoUrl?: string;
   errorMessage?: string;
-  criadoEm: string;
+  createdAt: string;
+  completedAt?: string;
 }
 
 export interface VideoCreateRequest {
@@ -230,21 +235,23 @@ export interface VideoFilters {
 export interface LinkResponse {
   id: string;
   slug: string;
-  title: string;
-  destination: string;
   shortUrl: string;
-  qrCodeUrl: string;
-  clicks: number;
-  platform: Platform;
+  destinationUrl: string;
+  title: string;
   campaign?: string;
+  clicks: number;
+  productId?: string;
+  scriptId?: string;
+  qrCodeUrl: string;
   active: boolean;
-  criadoEm: string;
+  createdAt: string;
+  lastClickAt?: string;
 }
 
 export interface LinkCreateRequest {
-  destination: string;
+  destinationUrl: string;
   title: string;
-  slug?: string;
+  customSlug?: string;
   campaign?: string;
 }
 

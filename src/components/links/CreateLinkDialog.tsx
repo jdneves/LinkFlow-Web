@@ -51,9 +51,9 @@ export function CreateLinkDialog({ open, onOpenChange }: Props) {
   function onSubmit(data: FormData) {
     create.mutate(
       {
-        destination: data.destination,
+        destinationUrl: data.destination,
         title: data.title,
-        slug: data.slug || undefined,
+        customSlug: data.slug || undefined,
         campaign: data.campaign || undefined,
       },
       { onSuccess: () => handleOpenChange(false) },

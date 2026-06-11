@@ -11,7 +11,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { PLATFORM_LABEL } from "@/lib/radar";
 import { useDeactivateLink } from "@/hooks/useLinks";
 import { getApiErrorMessage } from "@/lib/errors";
 import type { LinkResponse } from "@/types/api";
@@ -49,7 +48,6 @@ export function LinkCard({ link }: Props) {
           <div className="min-w-0 flex-1 space-y-1">
             <div className="flex flex-wrap items-center gap-2">
               <span className="truncate font-medium">{link.title}</span>
-              <Badge variant="secondary">{PLATFORM_LABEL[link.platform]}</Badge>
               {!link.active && (
                 <Badge variant="outline" className="text-muted-foreground">
                   Inativo
@@ -61,7 +59,7 @@ export function LinkCard({ link }: Props) {
             </div>
 
             <p className="truncate text-sm text-muted-foreground">
-              {link.destination}
+              {link.destinationUrl}
             </p>
 
             <div className="flex items-center gap-2">

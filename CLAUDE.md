@@ -81,6 +81,13 @@ top-level `Layout.tsx` / `Sidebar.tsx`.
 
 - **Order of work per phase:** types → `api/` → `hooks/` → page → loading/error/empty states →
   `npm run build`. Then update `ROADMAP.md` (check the boxes).
+- **Field names:** mirror EXACTLY the DTO field names documented in `PROJETO.md` (or the backend
+  DTO source in `../linkflow/src/main/java/br/com/linkflow/dto/`). Do not invent or translate
+  names. The backend is inconsistent — analytics uses Portuguese (`rotelirosMes`,
+  `cliquesPorDia`) while Script/Link/Video use English (`createdAt`, `destinationUrl`,
+  `customSlug`, `topics`). When in doubt about a RESPONSE field, confirm against a real API
+  response (or the backend DTO record) before naming it — a wrong name fails silently
+  (`undefined`) on responses or returns 400 on requests.
 - **Query hooks:** name `use<Domain>`; key as `["domain", "list"|"detail"|..., args]`.
   Paginated lists use `placeholderData: keepPreviousData` (no flicker when paging/filtering).
   Detail/conditional queries use `enabled: !!id` (or `search.length >= 2`).
@@ -101,7 +108,9 @@ top-level `Layout.tsx` / `Sidebar.tsx`.
   from a page (see `GenerateScriptDialog`, `ScriptDetailDialog`, `ProductDetailDialog`).
 - **Plan limits:** `usoPlano` comes from `GET /api/analytics/dashboard`. Disable the action
   button preventively when the quota is reached; the backend also validates. **Treat
-  `limite <= 0` as unlimited** (defensive — never block when the limit is 0/negative).
+  `limite* <= 0` as unlimited in EVERY plan check** (Dashboard, Studio, Links, Vídeos) — the
+  guard is always `!!usoPlano && usoPlano.<limite> > 0 && usoPlano.<usado> >= usoPlano.<limite>`.
+  Never block when the limit is 0/negative.
 - **Copy-to-clipboard:** use a small local-state `CopyButton` (navigator.clipboard) like in
   `ScriptDetailDialog`.
 - **i18n:** all UI text is pt-BR.

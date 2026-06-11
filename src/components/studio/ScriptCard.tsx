@@ -15,7 +15,7 @@ interface Props {
 }
 
 export function ScriptCard({ script, onClick }: Props) {
-  const date = new Date(script.criadoEm).toLocaleDateString("pt-BR", {
+  const date = new Date(script.createdAt).toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "short",
   });
