@@ -29,16 +29,8 @@ export function useGenerateScript() {
     mutationFn: (req: ScriptGenerateRequest) => scriptsApi.generate(req),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["scripts", "list"] });
-    },
-  });
-}
-
-export function useDeleteScript() {
-  const queryClient = useQueryClient();
-  return useMutation({
-    mutationFn: (id: string) => scriptsApi.delete(id),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["scripts", "list"] });
+      // Gerar roteiro consome cota do plano → atualiza usoPlano.
+      queryClient.invalidateQueries({ queryKey: ["analytics", "dashboard"] });
     },
   });
 }

@@ -79,6 +79,7 @@ export function GenerateScriptDialog({ open, onOpenChange }: Props) {
     generate.mutate(
       {
         productId: selectedProduct.id,
+        productName: selectedProduct.name,
         platform: platform as ScriptPlatform,
         format: format as ScriptFormat,
         tone: tone as ScriptTone,

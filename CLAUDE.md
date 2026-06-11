@@ -132,15 +132,15 @@ top-level `Layout.tsx` / `Sidebar.tsx`.
 - **Studio** (`pages/Studio.tsx`, `components/studio/`, `api/scripts.ts`, `hooks/useScripts.ts`,
   `hooks/useProductSearch.ts`, `lib/studio.ts`) — URL-synced platform/format filters, paginated
   list, `GenerateScriptDialog` (product search + platform/format/tone/duration selects),
-  `ScriptDetailDialog`, delete. Plan-limit aware via `usoPlano.rotelirosMes`.
+  `ScriptDetailDialog`. Plan-limit aware via `usoPlano.rotelirosMes`.
 
-> **⚠️ Verify against the backend (`PROJETO.md`).** The committed Studio code calls
-> `POST /api/studio/generate`, `GET /api/studio`, `GET /api/studio/{id}`,
-> `GET /api/studio/produto/{id}`, `DELETE /api/studio/{id}`, and models `tone`/`duration` as
-> enums (`ENTUSIASMADO|EDUCATIVO|DESCONTRAIDO|URGENTE`, `CURTO|MEDIO|LONGO`). `PROJETO.md`
-> documents different routes (`/api/studio/roteiro`, `/api/studio/roteiros`, …) and free-text
-> `tone`/`duration`. Reconcile these with the running backend before relying on Studio — if the
-> backend follows `PROJETO.md`, these calls 404 / fail validation.
+> **Studio — confirmed against the backend `ScriptController`:** routes are
+> `POST /api/studio/roteiro`, `GET /api/studio/roteiros`, `GET /api/studio/roteiros/{id}`,
+> `GET /api/studio/roteiros/produto/{productId}`. There is **no DELETE** endpoint for scripts.
+> The request (`ScriptRequest`) requires `productName` (@NotBlank); `tone`/`duration` are
+> free-text Strings on the backend — the frontend enums serialize to valid values. The list
+> endpoint only supports the `page` query param (platform/format filters are ignored
+> server-side).
 
 ## Remaining phases (see `ROADMAP.md` for full detail)
 

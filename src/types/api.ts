@@ -173,7 +173,10 @@ export interface RadarFilters {
 // Estúdio — /api/studio
 // ============================================================
 export interface ScriptGenerateRequest {
-  productId: string;
+  productId?: string;
+  /** Obrigatório no backend (@NotBlank) — sem ele o POST retorna 400. */
+  productName: string;
+  productHighlights?: string;
   platform: ScriptPlatform;
   format: ScriptFormat;
   tone: ScriptTone;
